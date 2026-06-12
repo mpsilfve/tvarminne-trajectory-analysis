@@ -258,6 +258,7 @@ def plot_monthly_maps_same_scale(
     cmap=None,
     mask_zeros: bool = False,
     show: bool = False,
+    alpha: float = 1
 ):
     """Plot all 12 monthly grids in one 4 x 3 figure using one color scale.
 
@@ -319,6 +320,7 @@ def plot_monthly_maps_same_scale(
             vmin=vmin,
             vmax=vmax,
             cmap=cmap,
+            alpha=alpha
         )
 
         _add_base_map(ax, lon_edges=lon_edges, lat_edges=lat_edges)
@@ -341,6 +343,7 @@ def plot_monthly_maps_same_scale(
         ax=axes.ravel().tolist(),
         shrink=0.75,
         orientation="vertical",
+        alpha=alpha
     )
     cbar.set_label(colorbar_label)
 

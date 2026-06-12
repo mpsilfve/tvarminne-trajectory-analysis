@@ -11,3 +11,5 @@ LON_MAX = 45.0
 
 # For now, draw grid with granularity 1x1 deg.
 GRID_GRANULARITY=1
+
+MATLAB_DATENUM_UNIX_EPOCH = 719529

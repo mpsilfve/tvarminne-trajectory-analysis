@@ -3,7 +3,7 @@ import pandas as pd
 from scipy.io import loadmat
 from benedict import benedict
 
-MATLAB_DATENUM_UNIX_EPOCH = 719529
+from consts import MATLAB_DATENUM_UNIX_EPOCH
 
 def load_mat(fn):
     return benedict(
