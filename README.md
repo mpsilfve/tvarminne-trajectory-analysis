@@ -6,7 +6,7 @@ This repository contains an exploratory trajectory-analysis pipeline for back tr
 
 ### 1. Set up virtual environment:
 ```
-% python3 -m venv venv
+% python3.10 -m venv venv
 % source venv/bin/activate
 ```
 
