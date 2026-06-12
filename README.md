@@ -11,7 +11,7 @@
 pip3 install -r requirements.txt
 ```
 
-### 3. Retrieve
+### 3. Retrieve data
     [data](https://drive.google.com/file/d/1PUnODhPx2qdvTnDETKcWLZU494rbMX1f/view?usp=sharing)
     from Google Drive. Unpack to produce a directory `data`
 
