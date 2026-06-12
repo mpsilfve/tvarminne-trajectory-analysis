@@ -1,0 +1,14 @@
+numpy
+gdown
+pandas
+scipy
+h5py
+matplotlib
+cartopy
+shapely
+pyproj
+click
+jupyterlab
+ipykernel
+ruff
+python-benedict
