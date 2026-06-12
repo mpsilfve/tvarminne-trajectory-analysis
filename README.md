@@ -17,7 +17,7 @@ pip3 install -r requirements.txt
 
 ### 3. Retrieve data 
 
-Raw data files are not committed to this repository due to size. Get [data](https://drive.google.com/file/d/1PUnODhPx2qdvTnDETKcWLZU494rbMX1f/view?usp=sharing) from Google Drive. Unpack to produce a directory `data`:
+Raw data files are not committed to this repository due to size. Get [data](https://drive.google.com/file/d/1PUnODhPx2qdvTnDETKcWLZU494rbMX1f/view?usp=sharing) from Google Drive (may require access in which case contact Miikka Silfverberg). Unpack to produce a directory `data`:
 
 ```
 % gdown "https://drive.google.com/file/d/1PUnODhPx2qdvTnDETKcWLZU494rbMX1f/view?usp=sharing"
