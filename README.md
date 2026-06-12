@@ -22,7 +22,7 @@ Raw data files are not committed to this repository due to size. Get [data](http
 
 ## How to generate plots?
 
-### 1. Overall monthly trajectory anomalies
+### Overall monthly trajectory anomalies
 
 This script illustrates monthly trajectory anomalies per grid cell. Positive values (yellower) indicate cells visited more often than the annual monthly mean for that cell; negative values (bluer) indicate cells visited less often. 
 
