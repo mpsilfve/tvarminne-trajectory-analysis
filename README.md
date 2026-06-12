@@ -30,4 +30,4 @@ This script illustrates monthly trajectory anomalies per grid cell. The colors i
 python3 scripts/plot_monthly_trajectory_anomalies.py --trajectories data/trajectorydata_clean.mat --outputfile plots/monthly_trajectory_anomalies.png
 ```
 
-![Plot](monthly_trajectory_anomalies.png)
+![Plot](plots/monthly_trajectory_anomalies.png)
