@@ -10,6 +10,8 @@ This repository contains an exploratory trajectory-analysis pipeline for back tr
 % source venv/bin/activate
 ```
 
+Python 3.10 or higher required!
+
 ### 2. Install requirements:
 ```
 pip3 install -r requirements.txt
