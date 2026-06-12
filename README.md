@@ -1,4 +1,4 @@
-# Hanko station trajectory analysis
+# Tvärminne station trajectory analysis
 
 This repository contains an exploratory trajectory-analysis pipeline for back trajectories arriving at the Hanko measurement station. The goal is to implement [PSCF (Potential Source Contribution Function) and the concentration-field (CF) approaches](https://acp.copernicus.org/articles/13/2153/2013/acp-13-2153-2013.pdf) together with other useful plots of the Hanko station measurement data.
 
