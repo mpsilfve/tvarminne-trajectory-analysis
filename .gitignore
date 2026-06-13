@@ -1,0 +1,65 @@
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python build/distribution artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# Editable installs / packaging
+*.manifest
+*.spec
+
+# Test/cache/tool artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+data/
+*.mat
+*.h5
+*.hdf5
+*.nc
+*.csv
+*.tgz
+
+# macOS
+.DS_Store
+
+# Emacs backups and autosaves
+*~
+\#*\#
+.\#*
+auto-save-list/
+tramp
+.#*
+
+# Vim swap files, optional but harmless
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment/config files
+.env
+.env.*
