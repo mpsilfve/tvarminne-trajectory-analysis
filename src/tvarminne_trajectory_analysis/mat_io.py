@@ -3,7 +3,7 @@ import pandas as pd
 from scipy.io import loadmat
 from benedict import benedict
 
-from consts import MATLAB_DATENUM_UNIX_EPOCH
+from tvarminne_trajectory_analysis.consts import MATLAB_DATENUM_UNIX_EPOCH
 
 def load_mat(fn):
     return benedict(

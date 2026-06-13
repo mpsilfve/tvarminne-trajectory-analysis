@@ -10,9 +10,9 @@ This repository contains an exploratory trajectory-analysis pipeline for back tr
 % source venv/bin/activate
 ```
 
-### 2. Install requirements:
+### 2. Install:
 ```
-pip3 install -r requirements.txt
+pip3 install -e .
 ```
 
 ### 3. Retrieve data 

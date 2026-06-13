@@ -1,7 +1,7 @@
 import click
 import numpy as np
 
-from consts import STATION_LAT, STATION_LON
+from tvarminne_trajectory_analysis.consts import STATION_LAT, STATION_LON
 
 def remove_fully_missing_trajectories(lat, lon, times):
     """

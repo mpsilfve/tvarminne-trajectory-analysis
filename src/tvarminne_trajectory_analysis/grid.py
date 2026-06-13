@@ -1,6 +1,6 @@
 import numpy as np
 
-from consts import LAT_MIN, LAT_MAX, LON_MIN, LON_MAX, GRID_GRANULARITY
+from tvarminne_trajectory_analysis.consts import LAT_MIN, LAT_MAX, LON_MIN, LON_MAX, GRID_GRANULARITY
 
 def make_lon_lat_grid(lat, lon, padding=1.0):
     """

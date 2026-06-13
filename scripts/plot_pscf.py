@@ -2,11 +2,11 @@ import click
 import numpy as np
 import pandas as pd
 
-from mat_io import load_mat, matlab_datenum_to_datetime
-from grid import make_lon_lat_grid
-from trajectories import remove_fully_missing_trajectories, count_trajectory_grid_visits, get_month_pooled_trajectories
-from concentrations import remove_missing_concentrations, find_high_concentrations
-from plot_map import plot_monthly_maps_same_scale
+from tvarminne_trajectory_analysis.mat_io import load_mat, matlab_datenum_to_datetime
+from tvarminne_trajectory_analysis.grid import make_lon_lat_grid
+from tvarminne_trajectory_analysis.trajectories import remove_fully_missing_trajectories, count_trajectory_grid_visits, get_month_pooled_trajectories
+from tvarminne_trajectory_analysis.concentrations import remove_missing_concentrations, find_high_concentrations
+from tvarminne_trajectory_analysis.plot_map import plot_monthly_maps_same_scale
 
 @click.command()
 @click.option("--concentrations", help="Concentration data file", required=True)

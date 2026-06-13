@@ -2,7 +2,7 @@ import click
 import numpy as np
 import pandas as pd
 
-from consts import MATLAB_DATENUM_UNIX_EPOCH
+from tvarminne_trajectory_analysis.consts import MATLAB_DATENUM_UNIX_EPOCH
 
 def remove_missing_concentrations(concentrations):
     """

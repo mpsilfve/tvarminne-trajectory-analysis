@@ -1,7 +1,7 @@
 import numpy as np
 
-from mat_io import load_trajectories
-from consts import STATION_LAT, STATION_LON
+from tvarminne_trajectory_analysis.mat_io import load_trajectories
+from tvarminne_trajectory_analysis.consts import STATION_LAT, STATION_LON
 
 lat, lon, _ = load_trajectories("data/trajectorydata_clean.mat")
 

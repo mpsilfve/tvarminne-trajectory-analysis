@@ -1,11 +1,11 @@
 import click
 import numpy as np
 
-from mat_io import load_trajectories
-from consts import LAT_MIN, LAT_MAX, LON_MIN, LON_MAX, GRID_GRANULARITY, STATION_LAT, STATION_LON
-from grid import make_lon_lat_grid
-from trajectories import remove_fully_missing_trajectories, count_trajectory_grid_visits, get_month_pooled_trajectories
-from plot_map import plot_monthly_maps_same_scale
+from tvarminne_trajectory_analysis.mat_io import load_trajectories
+from tvarminne_trajectory_analysis.consts import LAT_MIN, LAT_MAX, LON_MIN, LON_MAX, GRID_GRANULARITY, STATION_LAT, STATION_LON
+from tvarminne_trajectory_analysis.grid import make_lon_lat_grid
+from tvarminne_trajectory_analysis.trajectories import remove_fully_missing_trajectories, count_trajectory_grid_visits, get_month_pooled_trajectories
+from tvarminne_trajectory_analysis.plot_map import plot_monthly_maps_same_scale
 
 @click.command()
 @click.option(
