@@ -1,0 +1,27 @@
+[project]
+name = "tvarminne-trajectory-analysis"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+	"numpy",
+	"gdown",
+	"pandas",
+	"scipy",
+	"h5py",
+	"matplotlib",
+	"cartopy",
+	"shapely",
+	"pyproj",
+	"click",
+	"jupyterlab",
+	"ipykernel",
+	"ruff",
+	"python-benedict"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
