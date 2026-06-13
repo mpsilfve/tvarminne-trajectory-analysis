@@ -12,7 +12,8 @@ This repository contains an exploratory trajectory-analysis pipeline for back tr
 
 ### 2. Install
 ```
-pip3 install -e .
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -e .
 ```
 
 ### 3. Retrieve data 
