@@ -1,16 +1,16 @@
-# Hanko station trajectory analysis
+# Tvärminne station trajectory analysis
 
-This repository contains an exploratory trajectory-analysis pipeline for back trajectories arriving at the Hanko measurement station. The goal is to implement [PSCF (Potential Source Contribution Function) and the concentration-field (CF) approaches](https://acp.copernicus.org/articles/13/2153/2013/acp-13-2153-2013.pdf) together with other useful plots of the Hanko station measurement data.
+This repository contains an exploratory trajectory-analysis pipeline for back trajectories arriving at the Tvärminne measurement station. The goal is to implement [PSCF (Potential Source Contribution Function) and the concentration-field (CF) approaches](https://acp.copernicus.org/articles/13/2153/2013/acp-13-2153-2013.pdf) together with other useful plots of the measurement data.
 
 ## How to set up the project?
 
 ### 1. Set up virtual environment:
 ```
-% python3 -m venv venv
+% python3.10 -m venv venv
 % source venv/bin/activate
 ```
 
-### 2. Install:
+### 2. Install
 ```
 pip3 install -e .
 ```
@@ -65,12 +65,12 @@ Missing values:
 
 ## How to generate plots?
 
-### Overall monthly trajectory anomalies
+### PSCF plots for high particle concentration events
 
-This script illustrates monthly trajectory anomalies per grid cell. Positive values (yellower) indicate cells visited more often than the annual monthly mean for that cell; negative values (bluer) indicate cells visited less often. 
+The following command generates monthly PSCF maps for a selected DMPS particle-size bin. High-concentration trajectories are defined using the chosen percentile threshold (--highperc), and each grid cell is assigned the fraction of trajectories passing through that cell that were associated with high particle concentration at Tvärminne. These plots are preliminary PSCF diagnostics and should be interpreted as air-mass pathway associations, not direct source-attribution maps.
 
 ```
-python3 scripts/plot_monthly_trajectory_anomalies.py --trajectories data/trajectorydata_clean.mat --outputfile plots/monthly_trajectory_anomalies.png
+python3 scripts/plot_pscf.py --concentrations data/dmpsdata.mat --trajectories data/trajectorydata_clean.mat --particlesize 25 --highperc 0.75 --outputfile plots/monthly_pscf_anomalies.png
 ```
 
-![Plot](plots/monthly_trajectory_anomalies.png)
+![Plot](plots/monthly_pscf_anomalies.png)
