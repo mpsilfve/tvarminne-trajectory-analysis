@@ -12,8 +12,8 @@ This repository contains an exploratory trajectory-analysis pipeline for back tr
 
 ### 2. Install
 ```
-python -m pip install --upgrade pip setuptools wheel
-python -m pip install -e .
+% python -m pip install --upgrade pip setuptools wheel
+% python -m pip install -e .
 ```
 
 ### 3. Retrieve data 
@@ -71,7 +71,7 @@ Missing values:
 The following command generates monthly PSCF maps for a selected DMPS particle-size bin. High-concentration trajectories are defined using the chosen percentile threshold (--highperc), and each grid cell is assigned the fraction of trajectories passing through that cell that were associated with high particle concentration at Tvärminne. These plots are preliminary PSCF diagnostics and should be interpreted as air-mass pathway associations, not direct source-attribution maps.
 
 ```
-python3 scripts/plot_pscf.py --concentrations data/dmpsdata.mat --trajectories data/trajectorydata_clean.mat --particlesize 25 --highperc 0.75 --outputfile plots/monthly_pscf_anomalies.png
+% python3 scripts/plot_pscf.py --concentrations data/dmpsdata.mat --trajectories data/trajectorydata_clean.mat --particlesize 25 --highperc 0.75 --outputfile plots/monthly_pscf_anomalies.png
 ```
 
 ![Plot](plots/monthly_pscf_anomalies.png)
