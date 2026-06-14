@@ -14,12 +14,14 @@ from tvarminne_trajectory_analysis.plot_map import plot_monthly_maps_same_scale
 @click.option("--particlesize", help="Particle size index in {13, ..., 36} in concentration data file (Matlab indexing starts at 1)", required=True)
 @click.option("--highperc", help="High concentration percentile, e.g. 0.9 for the 90th percentile.", required=True)
 @click.option("--outputfile", help="Output image file", required=True)
-def main(concentrations, trajectories, particlesize, highperc, outputfile):
+@click.option("--minimumtrajectorycount", help="Cells need to occur in minimally this many trajectories", required=True)
+def main(concentrations, trajectories, particlesize, highperc, outputfile, minimumtrajectorycount):
     click.echo(f"Trajectory file: {trajectories}")
     click.echo(f"Concentration file: {concentrations}")
     click.echo(f"Particle size index: {particlesize}")
     click.echo(f"High concentration percentile: {highperc}")
     click.echo(f"Output file: {outputfile}")
+    click.echo(f"Minimum trajectory count: {minimumtrajectorycount}")
     
     # Read trajectories and create grid
     trajectories_mat = load_mat(trajectories)
@@ -29,11 +31,13 @@ def main(concentrations, trajectories, particlesize, highperc, outputfile):
     lat, lon, time = remove_fully_missing_trajectories(lat, lon, time) 
     lat_edges, lon_edges, lat_centers, lon_centers = make_lon_lat_grid(lat, lon)
 
+    minimumtrajectorycount=int(minimumtrajectorycount)
     monthly_pooled_trajectories = get_month_pooled_trajectories(lat, lon, time,
                                                                 lat_edges, lon_edges,
                                                                 range(1,13),
-                                                                exclude_station=False)
-
+                                                                exclude_station=False,
+                                                                min_traj_count=minimumtrajectorycount)
+    
 
     # Read concentrations and filter out
     particlesize = int(particlesize)

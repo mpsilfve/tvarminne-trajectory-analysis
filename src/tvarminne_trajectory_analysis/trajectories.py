@@ -64,7 +64,7 @@ def count_trajectory_grid_visits(masked_lat, masked_lon, lat_labels, lon_labels,
 
     return count_grid
 
-def get_month_pooled_trajectories(lat, lon, times, lat_edges, lon_edges, month, exclude_station=False):
+def get_month_pooled_trajectories(lat, lon, times, lat_edges, lon_edges, month, exclude_station=False, min_traj_count=0):
     monthly_counts = {}
     for month in range(1, 13):
         time_mask = times.month == month
@@ -74,5 +74,6 @@ def get_month_pooled_trajectories(lat, lon, times, lat_edges, lon_edges, month, 
             lat_edges,
             lon_edges,
             exclude_station
-        )
+        ).astype(float)
+        monthly_counts[month][monthly_counts[month] < min_traj_count] = np.nan
     return monthly_counts
