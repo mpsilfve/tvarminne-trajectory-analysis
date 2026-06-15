@@ -1,5 +1,15 @@
 # Plots
 
+### CF plots for mean particle concentrations
+
+This script produces monthly concentration field (CF) anomaly maps for a selected DMPS particle-size bin. Trajectory arrival times are matched with particle concentration measurements, and each trajectory contributes its matched concentration value to the grid cells it crosses. For each month, the script computes the mean concentration associated with each grid cell and plots the anomaly relative to the geometric mean concentration over the available measurement period.
+
+```
+python3 scripts/plot_cf.py --concentrations data/dmpsdata.mat --trajectories data/trajectorydata_clean.mat --particlesize 23 --outputfile plots/monthly_cf_anomalies.png --minimumtrajectorycount 10
+```
+
+![Plot](monthly_cf_anomalies.png)
+
 ### PSCF plots for high particle concentration events
 
 The following command generates monthly PSCF maps for a selected DMPS particle-size bin. High-concentration trajectories are defined using the chosen percentile threshold (--highperc), and each grid cell is assigned the fraction of trajectories passing through that cell that were associated with high particle concentration at Tvärminne. These plots are preliminary PSCF diagnostics and should be interpreted as air-mass pathway associations, not direct source-attribution maps.
