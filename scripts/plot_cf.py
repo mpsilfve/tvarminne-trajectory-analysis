@@ -29,13 +29,7 @@ def main(concentrations, trajectories, particlesize, outputfile, minimumtrajecto
     lat, lon, time = remove_fully_missing_trajectories(lat, lon, time) 
     lat_edges, lon_edges, lat_centers, lon_centers = make_lon_lat_grid(lat, lon)
 
-    minimumtrajectorycount=int(minimumtrajectorycount)
-    monthly_pooled_trajectories = get_month_pooled_trajectories(lat, lon, time,
-                                                                lat_edges, lon_edges,
-                                                                range(1,13),
-                                                                exclude_station=False,
-                                                                min_traj_count=minimumtrajectorycount)
-    
+    minimumtrajectorycount=int(minimumtrajectorycount)    
 
     # Read concentrations and filter out
     particlesize = int(particlesize)
@@ -74,7 +68,13 @@ def main(concentrations, trajectories, particlesize, outputfile, minimumtrajecto
               (time <= nearest_concentrations["trajectory_time"].max())]
     time = time[(time >= nearest_concentrations["trajectory_time"].min()) &
                 (time <= nearest_concentrations["trajectory_time"].max())]
-    
+
+    monthly_pooled_trajectories = get_month_pooled_trajectories(lat, lon, time,
+                                                                lat_edges, lon_edges,
+                                                                range(1,13),
+                                                                exclude_station=False,
+                                                                min_traj_count=minimumtrajectorycount)
+
     monthly_weighted_trajectories = get_month_weighted_trajectories(lat, lon, time, nearest_concentrations["concentration"],
                                                                   lat_edges, lon_edges,
                                                                   range(1,13),
