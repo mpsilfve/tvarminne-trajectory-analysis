@@ -258,7 +258,9 @@ def plot_monthly_maps_same_scale(
     cmap=None,
     mask_zeros: bool = False,
     show: bool = False,
-    alpha: float = 1
+    alpha: float = 1,
+    vmin: float | none = None,
+    vmax: float | none = None    
 ):
     """Plot all 12 monthly grids in one 4 x 3 figure using one color scale.
 
@@ -287,13 +289,13 @@ def plot_monthly_maps_same_scale(
 
     if kind == "anomaly":
         lim = max(np.nanmax(np.abs(grid)) for grid in grids.values())
-        norm = TwoSlopeNorm(vmin=-lim, vcenter=0.0, vmax=lim)
+        norm = TwoSlopeNorm(vmin=-lim if vmin is None else vmin, vcenter=0.0, vmax=lim if vmax is None else vmax)
         vmin = None
         vmax = None
     elif kind == "count":
         norm = None
-        vmin = 0.0
-        vmax = max(np.nanmax(grid) for grid in grids.values())
+        vmin = 0.0 if vmin is None else vmin
+        vmax = max(np.nanmax(grid) for grid in grids.values()) if vmax is None else vmax
     else:
         raise ValueError("kind must be either 'anomaly' or 'count'")
 

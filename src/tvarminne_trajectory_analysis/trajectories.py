@@ -11,7 +11,7 @@ def remove_fully_missing_trajectories(lat, lon, times):
 
     return lat[valid_rows], lon[valid_rows], times[valid_rows]
 
-def count_trajectory_grid_visits(masked_lat, masked_lon, lat_labels, lon_labels, exclude_station):
+def count_trajectory_grid_visits(masked_lat, masked_lon, lat_labels, lon_labels, exclude_station, weights=None):
     """Count binary trajectory visits to rounded 1° x 1° grid cells.
 
     Each trajectory contributes at most one count to each visited cell.
@@ -26,6 +26,7 @@ def count_trajectory_grid_visits(masked_lat, masked_lon, lat_labels, lon_labels,
     trajectory. Note that this is usually not needed when plotting
     deviation from average.
 
+    If an array of weights is given, we weight visits
     """
     count_grid = np.zeros((lat_labels.shape[0], lon_labels.shape[0]), dtype=int)
 
@@ -34,7 +35,10 @@ def count_trajectory_grid_visits(masked_lat, masked_lon, lat_labels, lon_labels,
     lon_min = lon_labels.min()
     lon_max = lon_labels.max()
 
-    for lat_row, lon_row in zip(masked_lat, masked_lon):
+    if weights is None:
+        weights = [1] * masked_lat.shape[0]
+        
+    for lat_row, lon_row, weight in zip(masked_lat, masked_lon, weights):
         valid = ~np.isnan(lat_row) & ~np.isnan(lon_row)
 
         lat_cell = np.rint(lat_row[valid]).astype(int)
@@ -60,7 +64,7 @@ def count_trajectory_grid_visits(masked_lat, masked_lon, lat_labels, lon_labels,
         pairs = np.column_stack([lat_idx, lon_idx])
         pairs = np.unique(pairs, axis=0)
 
-        np.add.at(count_grid, (pairs[:, 0], pairs[:, 1]), 1)
+        np.add.at(count_grid, (pairs[:, 0], pairs[:, 1]), weight)
 
     return count_grid
 
@@ -74,6 +78,21 @@ def get_month_pooled_trajectories(lat, lon, times, lat_edges, lon_edges, month, 
             lat_edges,
             lon_edges,
             exclude_station
+        ).astype(float)
+        monthly_counts[month][monthly_counts[month] < min_traj_count] = np.nan
+    return monthly_counts
+
+def get_month_weighted_trajectories(lat, lon, times, weights, lat_edges, lon_edges, month, exclude_station=False, min_traj_count=0):
+    monthly_counts = {}
+    for month in range(1, 13):
+        time_mask = times.month == month
+        monthly_counts[month] = count_trajectory_grid_visits(
+            lat[time_mask],
+            lon[time_mask],
+            lat_edges,
+            lon_edges,
+            exclude_station,
+            weights
         ).astype(float)
         monthly_counts[month][monthly_counts[month] < min_traj_count] = np.nan
     return monthly_counts
